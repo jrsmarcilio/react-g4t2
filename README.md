@@ -21,7 +21,7 @@ Criar um sistema para um consultório controlar o cadastro de seus clientes, ate
 
 ```bash
 ### Clone o projeto e acesse a pasta
-$ git clone https://github.com/jrsmarcilio/react-eslint-prettier.git && cd react-eslint-prettier
+$ git clone https://github.com/jrsmarcilio/react-g4t2.git && cd react-g4t2
 
 # Instale as dependências
 $ yarn
