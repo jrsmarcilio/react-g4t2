@@ -1,7 +1,7 @@
 <h3 align="center">
   FrontEnd - App de Atendimento Médico
 </h3>
-<p align="center>Acesse em https://react-g4t2.vercel.app/</>
+<a href="https://react-g4t2.vercel.app/">Acesse em</a>
 
 <p align="center">
   <a href="#autores">Autores</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
