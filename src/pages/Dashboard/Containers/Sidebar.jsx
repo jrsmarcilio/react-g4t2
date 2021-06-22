@@ -34,9 +34,9 @@ const Sidebar = () => {
       .then((response) => {
         toast(response.data.message);
 
-        // setTimeout(() => {
-        //   setRedirect(true);
-        // }, 5000);
+        setTimeout(() => {
+          setRedirect(true);
+        }, 5000);
       })
       .catch((error) => {
         console.log(error);

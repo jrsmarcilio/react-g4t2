@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Redirect } from 'react-router-dom'
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,7 +9,7 @@ import { useEffect } from "react";
 
 function CadastrarPaciente({ handleShowVerify }) {
   const [formData, setFormData] = useState([]);
-
+  const [redirect, setRedirect] = useState(false);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -21,15 +21,17 @@ function CadastrarPaciente({ handleShowVerify }) {
   async function handleRegister(e) {
     e.preventDefault();
 
-    const res = await api.post("/patient", formData, {
+    await api.post("/patient", formData, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
-    });
-
-    toast(res.data.message);
-
-    if (!res) {
+    }).then((res) => {
+      setTimeout(() => {
+        setRedirect(true);
+      }, 2000);
+      toast(res.data.message);
+  
+    }).catch((error) => {
       toast.error("Error ao cadastrar o paciente", {
         position: "top-right",
         autoClose: 5000,
@@ -39,18 +41,19 @@ function CadastrarPaciente({ handleShowVerify }) {
         draggable: true,
         progress: undefined,
       });
-    }
+    })
   }
 
   return (
     <Modal show={show} onHide={handleClose}>
       <Modal.Header closeButton>
         <Modal.Title>Cadastro de Paciente</Modal.Title>
+      <ToastContainer />
       </Modal.Header>
       <form htmlRole="form" onSubmit={handleRegister}>
         <Modal.Body>
           <p className="dados">Dados Pessoais</p>
-
+          {redirect && <Redirect to="/dashboard" />}
           <fieldset className="grupo">
             <div className="form-group">
               <label htmlFor="InputName">

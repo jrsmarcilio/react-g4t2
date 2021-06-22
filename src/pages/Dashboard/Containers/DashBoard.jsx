@@ -121,7 +121,7 @@ export default function DashBoard() {
           <div className="card shadow mb-4">
             <div className="card-header py-3 d-flex flex-row align-items-center justify-content-between">
               <h6 className="m-0 font-weight-bold text-primary">
-                Seja bem-vindo(a) novamente,
+                Base de Clientes
               </h6>
             </div>
             <div className="card-body">

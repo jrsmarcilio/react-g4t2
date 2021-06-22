@@ -14,7 +14,7 @@ export default function NavBar() {
 
   const Logout = () => {
     localStorage.clear("token");
-    localStorage.clear("nome");
+    // localStorage.clear("nome");
     setRedirect(true);
   };
 
